@@ -27,7 +27,7 @@ nodului B.
 
 Nodul A se reconecteaza la server si trimite numarul de blocuri transmise
 lui B
-Nodul B se reconecteaza la server , trimie o comanda pentru a incepe verificarea
+Nodul B se reconecteaza la server , trimite o comanda pentru a incepe verificarea
 si trimite numarul de blocuri primite de la nodul A
 
 Daca totul este OK  , nodul KM afiseaza mesajul "Totul este bine! Transfer realizat cu succes"
