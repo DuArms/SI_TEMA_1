@@ -14,9 +14,25 @@ Ordinea de rulare este KM , Nod B , Nod A .
 
 De preferat este sa rulati RUN.bat
 
-Documentatie : 
+### Comunicarea intre KM , Nod A , Nod B:
+Km joaca rol de server.
+Nod A si Nod B se vor conecta.
+Nod A trimite o comanda pentru a initializa transferul de data .
+KM rapsunde cu cheia , vectorul de initializare si modul de operare 
+si inchide conexiunea cu cei 2.
 
-    
+Nodul B isi deschide un port si asteapta sa primeasca mesajul criptat.
+Nodul A cripteaza un fisier cu pathul citit de la tastatura si il trimite
+nodului B.
+
+Nodul A se reconecteaza la server si trimite numarul de blocuri transmise
+lui B
+Nodul B se reconecteaza la server , trimie o comanda pentru a incepe verificarea
+si trimite numarul de blocuri primite de la nodul A
+
+Daca totul este OK  , nodul KM afiseaza mesajul "Totul este bine! Transfer realizat cu succes"
+
+###Documentatie :     
 
 ``` py
     NAME
