@@ -32,7 +32,7 @@ si trimite numarul de blocuri primite de la nodul A
 
 Daca totul este OK  , nodul KM afiseaza mesajul "Totul este bine! Transfer realizat cu succes"
 
-###Documentatie :     
+### Documentatie :     
 
 ``` py
     NAME
@@ -89,6 +89,7 @@ DATA
 FUNCTIONS
     aes_decrypt_cbc(crypto_text, key, initialization_vector)
         Implementare de decriptare AES_CBC .
+        Implementare dupa modelul prezentat la seminar.
         :param crypto_text:
         :param key:
         :param initialization_vector:
@@ -96,6 +97,7 @@ FUNCTIONS
     
     aes_decrypt_cfb(crypto_text, key, initialization_vector)
         Implementare de decriptare AES_CFB .
+        Implementare dupa modelul prezentat la seminar.
         :param crypto_text:
         :param key:
         :param initialization_vector:
@@ -103,6 +105,7 @@ FUNCTIONS
     
     aes_encrypt_cbc(plaine_text, key, initialization_vector)
         Implementare de criptare AES_CBC .
+        Implementare dupa modelul prezentat la seminar.
         :param plaine_text:
         :param key:
         :param initialization_vector:
@@ -110,6 +113,7 @@ FUNCTIONS
     
     aes_encrypt_cfb(plain_text, key, initialization_vector)
         Implementare de criptare AES_CFB .
+        Implementare dupa modelul prezentat la seminar.
         :param plaine_text:
         :param key:
         :param initialization_vector:
