@@ -47,17 +47,17 @@ FUNCTIONS
         
         :param connection:
         :param adrress:
-        :return:
+        :return None:
     
     schimb_de_chei(mode)
         Functia ce realizeaza schibmul de chei
         
         :param mode -- modul de operare dorit:
-        :return:
+        :return None:
     
     start_serer()
         Functie ce porneste serverul
-        :return:
+        :return None:
 
 DATA
     CHECK_VALUES = b'CHECK_VALUES'
@@ -78,10 +78,9 @@ DATA
     START_MESSAGE = b'START'
     conexiuni_clienti = []
     k1_cipher = <Crypto.Cipher._mode_ecb.EcbMode object>
-    ```
+```
 
-    
-
+   
 ``` py
     NAME
     cripto
@@ -93,7 +92,7 @@ FUNCTIONS
         :param crypto_text:
         :param key:
         :param initialization_vector:
-        :return:
+        :return  O lista de biti ce reprezinta crypto textul decriptat. :
     
     aes_decrypt_cfb(crypto_text, key, initialization_vector)
         Implementare de decriptare AES_CFB .
@@ -101,7 +100,7 @@ FUNCTIONS
         :param crypto_text:
         :param key:
         :param initialization_vector:
-        :return:
+        :return O lista de biti ce reprezinta crypto textul decriptat.:
     
     aes_encrypt_cbc(plaine_text, key, initialization_vector)
         Implementare de criptare AES_CBC .
@@ -109,7 +108,7 @@ FUNCTIONS
         :param plaine_text:
         :param key:
         :param initialization_vector:
-        :return:
+        :return O lista de biti ce reprezinta  textul criptat.:
     
     aes_encrypt_cfb(plain_text, key, initialization_vector)
         Implementare de criptare AES_CFB .
@@ -117,12 +116,12 @@ FUNCTIONS
         :param plaine_text:
         :param key:
         :param initialization_vector:
-        :return:
+        :return  O lista de biti ce reprezinta  textul criptat.:
     
     padding(padded_text)
         Functie de padare
         :param padded_text:
-        :return:
+        :return O lista de biti ce repezinta textul padat: 
     
     pp(x)
         Functie ce afiseaza o cheie in hexa.
@@ -133,12 +132,12 @@ FUNCTIONS
         Functie auxiliara pentru transformarea unue liste de blocuri
         intr-un mesaj.
         :param ciphertext:
-        :return:
+        :return Bytes:
     
     unpadding(message)
         Functie care elimina padarea
         :param message:
-        :return:
+        :return  O lista de biti ce repezinta textul fara padare:
 
     ```
 
@@ -153,25 +152,25 @@ FUNCTIONS
         Functie utiliata pentru conectarea la key maneger
         :param km:
         :param p:
-        :return:
+        :return socket.socket:
     
     read_data(connection)
         Functie folosita pentru a citi datele trimise in retea.
         :param connection:
-        :return:
+        :return bytes:
     
     setup(key_manager)
         Partea comuna a nodurilor ce se ocupa
         de obtinerea cheii de criptare , vectorului de initializare
         si a modului de operare.
         :param key_manager:
-        :return:
+        :return cheia, vectorul de initializare, modeul de utilizare, functia de criptare, functia de decriptare:
     
     write_data(connection, data)
         Functie folosita pentru a trimite datele in retea
         :param connection:
         :param data:
-        :return:
+        :return None:
 
 DATA
     CHECK_VALUES = b'CHECK_VALUES'
