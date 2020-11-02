@@ -19,7 +19,7 @@ if __name__ == "__main__":
         key_manager.shutdown(socket.SHUT_WR)
         key_manager.close()
 
-        text = open(input("Path fisier : "), "rb").read()
+        text = open(input("Path fisier (./node_a.py): "), "rb").read()
         crypo_text = cfe(text, KEY, IV)
 
         # print(cfd(cripo_text, KEY, IV).decode("ascii"))
