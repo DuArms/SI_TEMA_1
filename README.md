@@ -139,7 +139,7 @@ FUNCTIONS
         :param message:
         :return  O lista de biti ce repezinta textul fara padare:
 
-    ```
+```
 
     
 
