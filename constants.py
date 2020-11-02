@@ -5,7 +5,7 @@ from cripto import *
 import time
 
 KEY_MANAGER = '127.0.0.1'  # Standard loopback interface address (localhost)
-PORT = 6969  # Port to listen on (non-privileged ports are > 1023)
+PORT = 42069  # Port to listen on (non-privileged ports are > 1023)
 HEDER = 64
 FORMAT = "utf-8"
 DISCONECT_MESSAGE = b"!DC"

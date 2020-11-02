@@ -103,6 +103,6 @@ def start_serer():
         new_thread.start()
         print(address)
 
-
-print("KEY MANEGER :")
-start_serer()
+if __name__ == "__main__":
+    print("KEY MANEGER :")
+    start_serer()
