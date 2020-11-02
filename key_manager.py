@@ -9,6 +9,7 @@ IV = b"TEMA_DE_10++++++"
 
 ON = True
 
+
 def schimb_de_chei(mode):
     """
     Functia ce realizeaza schibmul de chei
@@ -16,21 +17,24 @@ def schimb_de_chei(mode):
     :param mode -- modul de operare dorit:
     :return:
     """
-    global  conexiuni_clienti
+    global conexiuni_clienti
     if mode == MODE_CBC:
         key_to_be_sent = k1_cipher.encrypt(bytes(K2))
         crypto_functio = aes_decrypt_cbc
     else:  # mode == MODE_CFB:
         key_to_be_sent = k1_cipher.encrypt(bytes(K3))
         crypto_functio = aes_decrypt_cfb
+
     for conn in conexiuni_clienti:
         write_data(conn, key_to_be_sent)
-        write_data(conn, IV)
-        write_data(conn, mode)
+        write_data(conn, k1_cipher.encrypt(bytes(IV)))
+        write_data(conn,  k1_cipher.encrypt(padding(mode)))
 
     expected_response = IV
+    print(IV)
     for conn in conexiuni_clienti:
         msg = read_data(conn)
+        print(msg)
         if crypto_functio(msg, k1_cipher.decrypt(key_to_be_sent), IV) != bytes(expected_response):
             raise ValueError("Cheie criptata incorect")
 
@@ -51,8 +55,9 @@ def check_blocks():
     au aceiasi lungime
     :return:
     """
-    global  conexiuni_clienti
-    while len(conexiuni_clienti) == 1 : time.sleep(0.001)
+    global conexiuni_clienti
+    while len(conexiuni_clienti) == 1:
+        time.sleep(0.001)
     values = []
     for conn in conexiuni_clienti:
         values.append(read_data(conn))
@@ -64,6 +69,7 @@ def check_blocks():
         raise ValueError("Ceva nu a mers bine")
 
     print("Totul este bine! Transfer realizat cu succes")
+
 
 def handeler(connection, adrress):
     """
@@ -102,14 +108,15 @@ def start_serer():
         print("[ SERVER ] Server is UP")
         connection, address = server.accept()
         conexiuni_clienti.append(connection)
-        new_thread = threading.Thread(target=handeler, args=(connection, address))
+        new_thread = threading.Thread(
+            target=handeler, args=(connection, address))
         #new_thread.demon = True
         new_thread.start()
-        print("[ SERVER ] : S-a conectat " ,address)
+        print("[ SERVER ] : S-a conectat ", address)
 
     server.close()
+
 
 if __name__ == "__main__":
     print("KEY MANEGER :")
     start_serer()
-
