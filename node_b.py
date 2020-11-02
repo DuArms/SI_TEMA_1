@@ -35,6 +35,6 @@ if __name__ == "__main__":
 
         # print(cfd(cripo_text, KEY, IV).decode("ascii"))
 
-
+    print("TRANSFER FINALIZAT")
     key_manager.shutdown(socket.SHUT_WR)
     key_manager.close()

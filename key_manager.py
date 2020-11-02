@@ -1,12 +1,13 @@
 from constants import *
 from cripto import *
-
+import sys
 conexiuni_clienti = []
 
 K2 = b"MAMA_ARE_MERE_12"
 K3 = b"TREC_LA_SI_CU_5+"
 IV = b"TEMA_DE_10++++++"
 
+ON = True
 
 def schimb_de_chei(mode):
     """
@@ -33,7 +34,7 @@ def schimb_de_chei(mode):
         if crypto_functio(msg, k1_cipher.decrypt(key_to_be_sent), IV) != bytes(expected_response):
             raise ValueError("Cheie criptata incorect")
 
-    print("Check is ok")
+    print("Check e ok")
 
     for conn in conexiuni_clienti:
         write_data(conn, START_MESSAGE)
@@ -50,17 +51,19 @@ def check_blocks():
     au aceiasi lungime
     :return:
     """
+    global  conexiuni_clienti
+    while len(conexiuni_clienti) == 1 : time.sleep(0.001)
     values = []
     for conn in conexiuni_clienti:
         values.append(read_data(conn))
         conn.shutdown(socket.SHUT_WR)
         conn.close()
+    conexiuni_clienti = []
 
     if values.count(values[0]) != len(values):
         raise ValueError("Ceva nu a mers bine")
 
-    print("Totule este bine!")
-
+    print("Totul este bine! Transfer realizat cu succes")
 
 def handeler(connection, adrress):
     """
@@ -95,14 +98,18 @@ def start_serer():
 
     server.listen(5)
 
-    while True:
+    while ON:
+        print("[ SERVER ] Server is UP")
         connection, address = server.accept()
         conexiuni_clienti.append(connection)
         new_thread = threading.Thread(target=handeler, args=(connection, address))
-        new_thread.demon = True
+        #new_thread.demon = True
         new_thread.start()
-        print(address)
+        print("[ SERVER ] : S-a conectat " ,address)
+
+    server.close()
 
 if __name__ == "__main__":
     print("KEY MANEGER :")
     start_serer()
+

@@ -6,10 +6,8 @@ if __name__ == "__main__":
     key_manager = conn_to_km(KEY_MANAGER, PORT)
 
     write_data(key_manager, MODE)
-
-    if input("MODE (CBC/CFB) =").upper() == MODE_CFB.decode('ascii'):
+    if input("ALEGE MODUL DE CRIPTARE  (CBC/CFB) =").upper() == MODE_CFB.decode('ascii'):
         write_data(key_manager, MODE_CFB)
-
     else:
         write_data(key_manager, MODE_CBC)
 
@@ -20,7 +18,8 @@ if __name__ == "__main__":
     if read_data(key_manager) == START_MESSAGE:
         key_manager.shutdown(socket.SHUT_WR)
         key_manager.close()
-        text = open("fisier_de_criptat.txt", "r").read()
+
+        text = open(input("Path fisier : "), "r").read()
         crypo_text = cfe(text, KEY, IV)
 
         # print(cfd(cripo_text, KEY, IV).decode("ascii"))
@@ -37,6 +36,6 @@ if __name__ == "__main__":
         write_data(key_manager, bytes(len(crypo_text)//128))
 
 
-
+    print("Transfer finalizat.")
     key_manager.shutdown(socket.SHUT_WR)
     key_manager.close()
