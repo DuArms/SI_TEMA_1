@@ -69,7 +69,8 @@ def check_blocks():
         raise ValueError("Ceva nu a mers bine")
 
     print("Totul este bine! Transfer realizat cu succes")
-
+    import os
+    os._exit(1)
 
 def handeler(connection, adrress):
     """

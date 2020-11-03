@@ -80,7 +80,7 @@ def setup(key_manager):
     mode = read_data(key_manager)
     mode = k1_cipher.decrypt(mode)
     mode = unpadding(mode)
-    print(IV,KEY,mode)
+    #print(IV,KEY,mode)
     if mode == MODE_CFB:
         cfe = aes_encrypt_cfb
         cfd = aes_decrypt_cfb

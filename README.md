@@ -14,6 +14,7 @@ Ordinea de rulare este KM , Nod B , Nod A .
 
 De preferat este sa rulati RUN.bat
 
+
 ### Comunicarea intre KM , Nod A , Nod B:
 Km joaca rol de server.
 Nod A si Nod B se vor conecta.
