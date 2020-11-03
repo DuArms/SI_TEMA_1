@@ -17,7 +17,7 @@ def transform(ciphertext):
     Functie auxiliara pentru transformarea unue liste de blocuri
     intr-un mesaj.
     :param ciphertext:
-    :return:
+    :return bytes:
     """
     aux = []
     for ct in ciphertext:
@@ -31,7 +31,7 @@ def padding(padded_text):
     """
     Functie de padare
     :param padded_text:
-    :return:
+    :return bytes:
     """
     byte_to_add = 16 - (len(padded_text) % 16)
 
@@ -44,7 +44,7 @@ def unpadding(message):
     """
     Functie care elimina padarea
     :param message:
-    :return:
+    :return bytes:
     """
     if message[-1] <= 16:
         if (message[- message[-1]]) == message[-1]:
@@ -58,7 +58,7 @@ def aes_encrypt_cbc(plaine_text, key, initialization_vector):
     :param plaine_text:
     :param key:
     :param initialization_vector:
-    :return:
+    :return bytes:
     """
     plaine_text = padding(plaine_text)
     initialization_vector = padding(initialization_vector)
@@ -86,7 +86,7 @@ def aes_decrypt_cbc(crypto_text, key, initialization_vector):
     :param crypto_text:
     :param key:
     :param initialization_vector:
-    :return:
+    :return bytes:
     """
     cipher_ecb = AES.new(key, AES.MODE_ECB)
 
@@ -114,7 +114,7 @@ def aes_encrypt_cfb(plain_text, key, initialization_vector):
     :param plaine_text:
     :param key:
     :param initialization_vector:
-    :return:
+    :return bytes:
     """
     plain_text = padding(plain_text)
     initialization_vector = padding(initialization_vector)
@@ -142,7 +142,7 @@ def aes_decrypt_cfb(crypto_text, key, initialization_vector):
     :param crypto_text:
     :param key:
     :param initialization_vector:
-    :return:
+    :return bytes:
     """
     cipher_ecb = AES.new(bytes(key), AES.MODE_ECB)
 
