@@ -36,7 +36,7 @@ Pasi de rulare :
 si al textului ce trebuie transmis
     Nodul B : Afiseaza modul de operare si textul primit de la nodul A
 
-    KM : Afiseaza daca mesajele de confirmare sunt sau nu identice si daca
+   KM : Afiseaza daca mesajele de confirmare sunt sau nu identice si daca
 documentul a fost transmis cu succes.
 
 ### Comunicarea intre KM , Nod A , Nod B:
