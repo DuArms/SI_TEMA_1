@@ -1,19 +1,43 @@
 ﻿# SI_TEMA_1
-
 ## Milea Robert 3B4
 
-### Fiecare functie este documentata.
 
-### Tema este scrisa in python 3.8 , pe windows in pycharm.
+### Prezentare
+Tema contine 5 fisre python si un fisier de test pentru a fi criptat.
+key_manager.py - joaca rol de autoritate centrala ce distribuie chei si confirma
+    realizarea transmiterii datelor
 
-### Daca nu aveti pycryptodome  pip3 -install pycryptodome
+node_a.py - joaca rolul nodului a din cerinta 
 
-### In Powershell-ul pentru nodul A se va introduce modul de operare dorit.
+node_b.py - joaca rolul nodului b din cerinta
+
+constants.py - este un modul ajutator unde au fost definite
+    diferite constante folsite si functii comune pentru comunicarea in
+    retea
+
+cripto.py - contine implementarile AES_CBC si AEC_CFB cat si functiile
+    ajutatorea folosite
+
+criptotext.txt - este un fisier generic ce va juca rol
+    de document important . Acesta contine versurile a doua melodii
+    de o extrema importanta. Textul melodiilor trebuie transmis
+    de la compozitor de la artist in regim TOP SECRET. 
+
+### Rulare
+Tema este scrisa in python 3.8 , pe windows in pycharm.
+Pentru rulare este necesar sa aveti instalat pycryptodome
+(pip3 -install pycryptodome)
 
 Ordinea de rulare este KM , Nod B , Nod A .
-
 De preferat este sa rulati RUN.bat
 
+Pasi de rulare :
+    Nodul A : Asteapta selectarea unui mod  de operare
+si al textului ce trebuie transmis
+    Nodul B : Afiseaza modul de operare si textul primit de la nodul A
+
+    KM : Afiseaza daca mesajele de confirmare sunt sau nu identice si daca
+documentul a fost transmis cu succes.
 
 ### Comunicarea intre KM , Nod A , Nod B:
 Km joaca rol de server.

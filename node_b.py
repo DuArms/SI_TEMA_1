@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     KEY, IV, mode, cfe, cfd = setup(key_manager)
 
-    print(mode)
+    print("Modul selectat de nodul a este ", mode)
 
     if read_data(key_manager) == START_MESSAGE:
         key_manager.shutdown(socket.SHUT_WR)

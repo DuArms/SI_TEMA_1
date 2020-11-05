@@ -31,14 +31,14 @@ def schimb_de_chei(mode):
         write_data(conn,  k1_cipher.encrypt(padding(mode)))
 
     expected_response = IV
-    print(IV)
+    print("Mesaje de verificare :")
     for conn in conexiuni_clienti:
         msg = read_data(conn)
         print(msg)
         if crypto_functio(msg, k1_cipher.decrypt(key_to_be_sent), IV) != bytes(expected_response):
             raise ValueError("Cheie criptata incorect")
 
-    print("Check e ok")
+    print("Check  ok")
 
     for conn in conexiuni_clienti:
         write_data(conn, START_MESSAGE)
