@@ -3,7 +3,7 @@
 
 
 ### Prezentare
-Tema contine 5 fisre python si un fisier de test pentru a fi criptat.
+Tema contine 5 fisiere python si un fisier de test pentru a fi criptat.
 key_manager.py - joaca rol de autoritate centrala ce distribuie chei si confirma
     realizarea transmiterii datelor
 
